@@ -3,6 +3,12 @@ KINC-NF Demoes for Kubernetes
 
 #### 1. Configure Environment
 
+If needed, add Java 8 to alternatives:
+
+`update-alternatives --install <link> <command> <real_path> <priority>`
+
+ex: `update-alternatives --install /usr/bin/java java /usr/local/bin/java 80`
+
 Switch to Java 8:
 
 `sudo update-alternatives --config java`
@@ -37,7 +43,7 @@ Load the input data onto the PVC:
 
 Deploy KINC using `nextflow-kuberun`:
 
-`nextflow kuberun systemsgenetics/kinc-nf -v <PVC> -C demos/<DEMO_FOLDER>/nextflow.config`
+`nextflow kuberun systemsgenetics/kinc-nf -v <PVC> -c demos/<DEMO_FOLDER>/nextflow.config`
 
 Wait until the workflow is finished running.
 
