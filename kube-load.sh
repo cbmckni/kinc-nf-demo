@@ -50,7 +50,7 @@ done
 echo "copying data..."
 
 kubectl exec ${POD_NAME} -- bash -c "mkdir -p ${PVC_PATH}/${USER}/${PVC_EXT}"
-kubectl cp "${LOCAL_PATH}" "${POD_NAME}:${PVC_PATH}/${USER}/${PVC_EXT/$(basename ${LOCAL_PATH})"
+kubectl cp "${LOCAL_PATH}" "${POD_NAME}:${PVC_PATH}/${USER}/${PVC_EXT}/$(basename ${LOCAL_PATH})"
 
 # delete pod
 kubectl delete -f ${POD_FILE}
