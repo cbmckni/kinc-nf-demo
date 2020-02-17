@@ -8,7 +8,8 @@ if [[ $# != 3 ]]; then
 fi
 
 PVC_NAME="$1"
-PVC_PATH="$3"
+PVC_PATH="/workspace"
+PVC_EXT="$3"
 POD_FILE="pod.yaml"
 POD_NAME="${USER}-load-$(printf %04x ${RANDOM})"
 LOCAL_PATH="$(realpath $2)"
@@ -48,8 +49,8 @@ done
 # copy input data to pod
 echo "copying data..."
 
-kubectl exec ${POD_NAME} -- bash -c "mkdir -p ${PVC_PATH}"
-kubectl cp "${LOCAL_PATH}" "${POD_NAME}:${PVC_PATH}/$(basename ${LOCAL_PATH})"
+kubectl exec ${POD_NAME} -- bash -c "mkdir -p ${PVC_PATH}/${USER}/${PVC_EXT}"
+kubectl cp "${LOCAL_PATH}" "${POD_NAME}:${PVC_PATH}/${USER}/${PVC_EXT/$(basename ${LOCAL_PATH})"
 
 # delete pod
 kubectl delete -f ${POD_FILE}

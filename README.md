@@ -1,4 +1,4 @@
-KINC-NF Demoes for Kubernetes
+KINC-NF Demos for Kubernetes
 ===
 
 #### 1. Configure Environment
@@ -37,7 +37,9 @@ Select one of the demoes in the `demos` folder to run:
 
 Load the input data onto the PVC:
 
-`./kube-load.sh <PVC> <DEMO_FOLDER>`
+`./kube-load.sh <PVC> <DEMO_FOLDER> <PATH_ON_PVC>`
+
+ex: `./kube-load.sh teach-compbio yeast-cpu user-cole`
 
 #### 3. Deploy Workflow
 
